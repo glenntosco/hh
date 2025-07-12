@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plumbing:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plumbing="clr-namespace:Pro4Soft.MobileDevice.Plumbing;assembly=MobileDevice"
+                 xmlns:screens="clr-namespace:Pro4Soft.MobileDevice.Plumbing.Screens;assembly=MobileDevice"
+                 x:Class="Pro4Soft.MobileDevice.Plumbing.Screens.LoginView" x:DataType="screens:LoginViewVm"
+                 VerticalOptions="FillAndExpand">
+    <ContentView.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Image x:Name="Logo" Aspect="AspectFit" Source="{Binding LogoUrl}" Margin="50, 0"/>
+            <Label HorizontalTextAlignment="Center" Text="{Binding WelcomeMessage}" />
+            <Entry Placeholder="{Binding ConverterParameter='Username', Converter={StaticResource Lang}}" IsSpellCheckEnabled="false" IsTextPredictionEnabled="false"
+                 Text="{Binding Path=Username}" Completed="UsernameTxt_OnCompleted" x:Name="UsernameTxt"/>
+            <Entry Placeholder="{Binding ConverterParameter='Password', Converter={StaticResource Lang}}" IsSpellCheckEnabled="false" IsTextPredictionEnabled="false" IsPassword="True" 
+                 Text="{Binding Path=Password}" Completed="PasswordTxt_OnCompleted" x:Name="PasswordTxt"/>
+            <Label x:Name="ErrorMessage" HorizontalTextAlignment="Center" IsVisible="false" MaxLines="3" Style="{StaticResource ErrorMessage}"/>
+            <Button Text="{Binding ConverterParameter='Sign me in', Converter={StaticResource Lang}}" Clicked="Login_OnClicked" Style="{StaticResource BaseButton}"/>
+            <Label HorizontalOptions="Center" FontSize="Micro">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Powered by "/>
+                        <Span x:Name="P4WarehouseLinkSpan" TextColor="Blue" TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand, Mode=OneWay}" CommandParameter="https://www.p4warehouse.com"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                <Label HorizontalOptions="Start" FontSize="Small">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding ConverterParameter='Reset tenant', Converter={StaticResource Lang}}" TextColor="Blue" TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnResetTenant"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label x:Name="VersionLabel" HorizontalOptions="EndAndExpand" VerticalOptions="End" FontSize="Micro"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</plumbing:BaseContentView>

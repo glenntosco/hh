@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:fontawesome="clr-namespace:Pro4Soft.MobileDevice.Plumbing.Infrastructure"
+             mc:Ignorable="d" Style="{StaticResource PageStyle}"
+             x:Class="Pro4Soft.MobileDevice.Main">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid BackgroundColor="#E7E7E7" Grid.Row="0" Padding="0" HeightRequest="25" x:Name="StatusBar" IsVisible="false">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" x:Name="TasksIcon" Padding="10, 0, 0, 0" FontSize="16" Text="{x:Static fontawesome:FontAwesomeIcons.Tasks}" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center" IsVisible="False"/>
+                <Label Grid.Column="1" x:Name="GeoLocation" Padding="5, 0, 0, 0" FontSize="16" Text="{x:Static fontawesome:FontAwesomeIcons.Globe}" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center" IsVisible="False"/>
+                <Label Grid.Column="2" x:Name="ChatIcon" Padding="5, 0, 0, 0" FontSize="16" Text="{x:Static fontawesome:FontAwesomeIcons.Comments}" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center" IsVisible="True"/>
+                <Label Grid.Column="4" x:Name="UsernameTxt" Padding="0, 0, 10, 0" FontSize="16" VerticalOptions="Center" IsVisible="True"/>
+            </Grid>
+            <StackLayout BackgroundColor="White" Grid.Row="1" x:Name="Container" VerticalOptions="FillAndExpand" Padding="15" Spacing="10">
+                
+            </StackLayout>
+            <ActivityIndicator Grid.Row="0" Grid.RowSpan="2" x:Name="Progress" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
+                               BackgroundColor="Transparent" IsRunning="true" IsEnabled="true" IsVisible="false" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

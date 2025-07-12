@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plumbing:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plumbing="clr-namespace:Pro4Soft.MobileDevice.Plumbing;assembly=MobileDevice"
+                 x:Class="Pro4Soft.MobileDevice.Plumbing.Screens.TenantSelectionView"
+                 VerticalOptions="FillAndExpand">
+    <ContentView.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Image x:Name="Logo" Aspect="AspectFit" Margin="70, 0, 70, 30"/>
+            <Label HorizontalTextAlignment="Center" Text="Tenant selection" />
+            <Entry Placeholder="Tenant" IsSpellCheckEnabled="false" IsTextPredictionEnabled="false" x:Name="Tenant" FontSize="Small" Completed="Tenant_OnCompleted"/>
+            <Entry Placeholder="Server" IsVisible="false" IsSpellCheckEnabled="false" IsTextPredictionEnabled="false" x:Name="Server" FontSize="Small"/>
+            <Label x:Name="ErrorMessage" Padding="3" MaxLines="4" HorizontalTextAlignment="Center" Text="Tenant selection" IsVisible="false" Style="{StaticResource ErrorMessage}"/>
+            <Button Text="Apply" Clicked="Tenant_OnCompleted" Style="{StaticResource BaseButton}"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                <Label HorizontalOptions="Start" FontSize="Small">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding ConverterParameter='Advanced...', Converter={StaticResource Lang}}" TextColor="Blue" TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="RewriteBaseUrl"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label x:Name="VersionLabel" HorizontalOptions="EndAndExpand" VerticalOptions="End" FontSize="Micro"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</plumbing:BaseContentView>

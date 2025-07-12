@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plumbing:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plumbing="clr-namespace:Pro4Soft.MobileDevice.Plumbing;assembly=MobileDevice"
+                 x:Class="Pro4Soft.MobileDevice.Plumbing.Screens.MenuView"
+                 VerticalOptions="FillAndExpand">
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollView>
+                <FlexLayout x:Name="ChildrenContainer" Wrap="Wrap" AlignItems="Start" VerticalOptions="FillAndExpand"/>
+            </ScrollView>
+        </Grid>
+    </ContentView.Content>
+</plumbing:BaseContentView>

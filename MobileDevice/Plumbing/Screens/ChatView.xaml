@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plumbing:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plumbing="clr-namespace:Pro4Soft.MobileDevice.Plumbing;assembly=MobileDevice"
+                 xmlns:converters="clr-namespace:Pro4Soft.MobileDevice.Plumbing.Screens.Converters;assembly=MobileDevice"
+                 x:Class="Pro4Soft.MobileDevice.Plumbing.Screens.ChatView" VerticalOptions="FillAndExpand">
+    <plumbing:BaseContentView.Resources>
+        <ResourceDictionary>
+            <converters:ChatMessageDataTemplateSelector x:Key="MessageTemplateSelector"></converters:ChatMessageDataTemplateSelector>
+        </ResourceDictionary>
+    </plumbing:BaseContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0" x:Name="MessagesListView" ItemTemplate="{StaticResource MessageTemplateSelector}" 
+                  HasUnevenRows="True" ItemSelected="MyListView_OnItemSelected"
+                  ItemTapped="MyListView_OnItemTapped" SeparatorVisibility="None">
+        </ListView>
+        <Grid Grid.Row="1" x:Name="MessageControls" RowSpacing="1" ColumnSpacing="2" Padding="2" BackgroundColor="#EFEFF4" 
+              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Entry x:Name="MessageTextBox" Grid.Column="0" HeightRequest="35" Keyboard="Chat" PlaceholderColor="LightGray"
+                   Completed="SendMessage" Placeholder="{Binding ConverterParameter='Message...', Converter={StaticResource Lang}}"/>
+            <Button Clicked="SendMessage" Grid.Column="1" Text="Send" Command="{Binding SendCommand}"></Button>
+        </Grid>
+    </Grid>
+</plumbing:BaseContentView>

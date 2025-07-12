@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<scanMessages:BaseScanMessage xmlns="http://xamarin.com/schemas/2014/forms" 
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:scanMessages="clr-namespace:Pro4Soft.MobileDevice.Plumbing.ScanMessages;assembly=MobileDevice"
+                BorderColor="LightGray" CornerRadius="5" Padding="5"
+                x:Class="Pro4Soft.MobileDevice.Plumbing.ScanMessages.TextWithSubtitleMessage">
+    <StackLayout Orientation="Vertical" Padding="2">
+        <Label x:Name="TitleBox" FontSize="Small" FontAttributes="Bold" VerticalOptions="StartAndExpand" MaxLines="15" HorizontalTextAlignment="Start"/>
+        <Label x:Name="BodyBox" FontSize="Small" FontAttributes="Italic" VerticalOptions="StartAndExpand" MaxLines="15" HorizontalTextAlignment="Start"/>
+        <Grid HorizontalOptions="CenterAndExpand">
+            <Label x:Name="LeftSubtitleBox" FontSize="Micro" TextColor="DimGray" VerticalOptions="StartAndExpand" MaxLines="1" Padding="1" HorizontalTextAlignment="Start"/>
+            <Label x:Name="RightSubtitleBox" FontSize="Micro" TextColor="DimGray" VerticalOptions="EndAndExpand" MaxLines="1" Padding="1" HorizontalTextAlignment="End"/>
+        </Grid>
+    </StackLayout>
+    <Frame.GestureRecognizers>
+        <TapGestureRecognizer Tapped="Tap"/>
+    </Frame.GestureRecognizers>
+</scanMessages:BaseScanMessage>

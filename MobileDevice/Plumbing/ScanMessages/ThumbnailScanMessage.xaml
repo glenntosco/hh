@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<scanMessages:BaseScanMessage xmlns="http://xamarin.com/schemas/2014/forms" 
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:scanMessages="clr-namespace:Pro4Soft.MobileDevice.Plumbing.ScanMessages;assembly=MobileDevice"
+                BorderColor="DarkGray" CornerRadius="5" Padding="5"
+                x:Class="Pro4Soft.MobileDevice.Plumbing.ScanMessages.ThumbnailScanMessage" x:DataType="scanMessages:ThumbnailScanMessage">
+    <StackLayout Orientation="Horizontal" Padding="2, 5, 2, 5">
+        <Image x:Name="ImageBox" Aspect="AspectFit" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start"/>
+        <Label x:Name="TextBox" FontSize="Small" VerticalOptions="Start" MaxLines="500" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+    </StackLayout>
+    <Frame.GestureRecognizers>
+        <TapGestureRecognizer Tapped="TapAndRemove"/>
+    </Frame.GestureRecognizers>
+</scanMessages:BaseScanMessage>

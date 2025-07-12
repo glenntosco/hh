@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:generic="clr-namespace:Pro4Soft.DataTransferObjects.Dto.Generic;assembly=DataTransferObjects"
+       BorderColor="DarkGray" Margin="5" Padding="2" CornerRadius="5" WidthRequest="80" HeightRequest="75"
+       x:Class="Pro4Soft.MobileDevice.Plumbing.Screens.Controls.MenuItemButton" x:DataType="generic:Menu">
+    <StackLayout Orientation="Vertical" Padding="2, 5, 2, 5" VerticalOptions="StartAndExpand">
+        <Label x:Name="Icon" FontSize="30" Text="{Binding IconText}" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="StartAndExpand" HorizontalTextAlignment="Center"/>
+        <Label x:Name="Title" FontSize="12" Text="{Binding Label}" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" MaxLines="2" VerticalOptions="StartAndExpand"/>
+    </StackLayout>
+    <Frame.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnMenuItemPressed"/>
+    </Frame.GestureRecognizers>
+</Frame>

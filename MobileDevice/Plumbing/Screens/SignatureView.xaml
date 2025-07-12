@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plumbing:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plumbing="clr-namespace:Pro4Soft.MobileDevice.Plumbing;assembly=MobileDevice"
+                 xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+                 x:Class="Pro4Soft.MobileDevice.Plumbing.Screens.SignatureView"
+                 VerticalOptions="FillAndExpand">
+    <ContentView.Content>
+        <StackLayout VerticalOptions="Center">
+            <Label x:Name="TitleLabel" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="Large"/>
+            <Label x:Name="DescriptionLbl"/>
+            <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" Padding="1">
+                <forms:SignaturePadView x:Name="PadView" HeightRequest="150"
+                                        CaptionText="{Binding ConverterParameter='Please sign', Converter={StaticResource Lang}}" 
+                                        ClearText="{Binding ConverterParameter='Clear', Converter={StaticResource Lang}}"/>
+            </Frame>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button Text="{Binding ConverterParameter='Submit', Converter={StaticResource Lang}}" Clicked="Submit" Margin="30,0,0,0"/>
+                <Button HorizontalOptions="EndAndExpand" Text="{Binding ConverterParameter='Cancel', Converter={StaticResource Lang}}" Clicked="Cancel" Margin="0,0,30,0"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</plumbing:BaseContentView>

@@ -1,0 +1,176 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <RootNamespace>Pro4Soft.MobileDevice</RootNamespace>
+    <UserSecretsId>4a31f89a-6fb3-4408-8447-f7775359e3be</UserSecretsId>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Plumbing\Contexts\**" />
+    <EmbeddedResource Remove="Plumbing\Contexts\**" />
+    <None Remove="Plumbing\Contexts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Matcha.BackgroundService" Version="1.0.5478" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.4.3" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
+    <PackageReference Include="Xam.Plugin.LatestVersion" Version="2.1.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.6.0" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Plumbing\ScanMessages\ErrorScanMessage.xaml.cs">
+      <DependentUpon>ErrorScanMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\ScanMessages\TextScanButton.xaml.cs">
+      <DependentUpon>TextScanButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\ScanMessages\TextWithSubtitleMessage.xaml.cs">
+      <DependentUpon>TextWithSubtitleMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\ScanMessages\ThumbnailScanMessage.xaml.cs">
+      <DependentUpon>ThumbnailScanMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\ScanMessages\ImageScanMessage.xaml.cs">
+      <DependentUpon>ImageScanMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\ScanMessages\TextScanMessage.xaml.cs">
+      <DependentUpon>TextScanMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\ChatView.xaml.cs">
+      <DependentUpon>ChatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\ChatView.xaml.cs">
+      <DependentUpon>ChatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\Controls\OutgoingViewCell.xaml.cs">
+      <DependentUpon>OutgoingViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\Controls\IncomingViewCell.xaml.cs">
+      <DependentUpon>IncomingViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\ContactView.xaml.cs">
+      <DependentUpon>ContactView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\SignatureView.xaml.cs">
+      <DependentUpon>SignatureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\Controls\MenuItemButton.xaml.cs">
+      <DependentUpon>MenuItemButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\LoginView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\MenuView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\ScanScreenView.xaml.cs">
+      <DependentUpon>ScanScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Plumbing\Screens\TenantSelectionView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Components\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Components\MenuItemButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Components\MenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Components\ScanScreenView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Components\TenantSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\ScanMessages\ErrorScanMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\ScanMessages\ImageScanMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\ScanMessages\TextScanButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\ScanMessages\TextScanMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\ScanMessages\TextWithSubtitleMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\ScanMessages\ThumbnailScanMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\ChatView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\ContactView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\Controls\IncomingViewCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\Controls\MenuItemButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\Controls\OutgoingViewCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\MenuItemButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\MenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\ScanScreenView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\SignatureView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Plumbing\Screens\TenantSelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>

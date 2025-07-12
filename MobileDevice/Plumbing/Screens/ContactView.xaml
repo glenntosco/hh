@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plumbing:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plumbing="clr-namespace:Pro4Soft.MobileDevice.Plumbing;assembly=MobileDevice"
+                 xmlns:crle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+                 xmlns:converters="clr-namespace:Pro4Soft.MobileDevice.Plumbing.Screens.Converters;assembly=MobileDevice"
+                 x:Class="Pro4Soft.MobileDevice.Plumbing.Screens.ContactView" VerticalOptions="FillAndExpand">
+    <ListView x:Name="ContactList" HasUnevenRows="True" ItemSelected="MyListView_OnItemSelected"
+              ItemTapped="MyListView_OnItemTapped" SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame BorderColor="Transparent" HasShadow="False" BackgroundColor="White" Padding="2">
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <crle:CircleImage Grid.Column="0" Grid.RowSpan="2" HeightRequest="50" WidthRequest="50" BorderThickness="2" Margin="1"
+                                                      HorizontalOptions="StartAndExpand" BorderColor="{Binding Path=IsOnline, Converter={StaticResource OnlineConverter}}" Aspect="AspectFill" VerticalOptions="Center" 
+                                                      Source="{Binding Path=Id, Converter={StaticResource AvatarConvertor}}"/>
+                            
+                            <Label Grid.Row="0" TextColor="#696969" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Username}" VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="1" TextColor="DarkGray" Text="{Binding NewMessages, Converter={StaticResource ContactSubMessageConvertor}}" FontSize="Micro" FontAttributes="Italic" HorizontalOptions="Start"/>
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</plumbing:BaseContentView>

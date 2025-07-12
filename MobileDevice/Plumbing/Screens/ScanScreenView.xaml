@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plumbing:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plumbing="clr-namespace:Pro4Soft.MobileDevice.Plumbing;assembly=MobileDevice"
+                 x:Class="Pro4Soft.MobileDevice.Plumbing.Screens.ScanScreenView" VerticalOptions="FillAndExpand">
+    <ContentView.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="Title" Grid.Row="0" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FontAttributes="Bold" FontSize="Large"/>
+            <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="ToolbarContainer" Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalOptions="FillAndExpand">
+                    
+                </StackLayout>
+            </StackLayout>
+            <Frame BackgroundColor="#EEEEEE" BorderColor="#B0B0B0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="5" Grid.Row="2">
+                <ScrollView x:Name="Scroller" VerticalScrollBarVisibility="Never">
+                    <StackLayout x:Name="Container" Orientation="Vertical" Padding="1"/>
+                </ScrollView>
+            </Frame>
+            <StackLayout x:Name="ControlsContainer" Orientation="Horizontal" Grid.Row="3" HeightRequest="50" HorizontalOptions="FillAndExpand"/>
+        </Grid>
+    </ContentView.Content>
+</plumbing:BaseContentView>
